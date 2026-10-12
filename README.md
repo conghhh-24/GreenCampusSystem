@@ -8,4 +8,4 @@
 
 启动：先执行 `database/schema.sql`、`init_data.sql`、`views.sql`；在 backend 设置 `DB_HOST`、`DB_PORT`、`DB_NAME`、`DB_USERNAME`、`DB_PASSWORD` 后运行 `mvn spring-boot:run`；在 frontend 执行 `npm install` 和 `npm run dev`。
 
-默认演示账号：`admin`、`student01`。课程设计文档位于 `docs/`。
+默认演示账号：`student01 / user-demo-hash`，管理员为 `admin / admin-demo-hash`。课程设计文档位于 `docs/`。
