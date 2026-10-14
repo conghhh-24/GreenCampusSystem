@@ -1,0 +1,35 @@
+@baseUrl = http://localhost:8080
+
+### 查询物品
+GET {{baseUrl}}/api/items?page=0&size=10
+
+### 发起交易
+POST {{baseUrl}}/api/trades
+Content-Type: application/json
+
+{
+  "itemId": 1,
+  "buyerId": 1,
+  "amount": 25
+}
+
+### 查询管理员可见的交易订单
+GET {{baseUrl}}/api/trades?userId=1&admin=true
+
+### 管理员开始处理交易
+PUT {{baseUrl}}/api/trades/1/status
+Content-Type: application/json
+
+{
+  "operatorId": 1,
+  "status": "PROCESSING"
+}
+
+### 管理员完成交易
+PUT {{baseUrl}}/api/trades/1/status
+Content-Type: application/json
+
+{
+  "operatorId": 1,
+  "status": "COMPLETED"
+}

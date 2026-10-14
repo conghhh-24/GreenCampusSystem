@@ -10,6 +10,8 @@ CREATE TABLE users (
  role ENUM('USER','ADMIN') NOT NULL DEFAULT 'USER',
  status ENUM('ACTIVE','DISABLED') NOT NULL DEFAULT 'ACTIVE',
  total_points INT NOT NULL DEFAULT 0 CHECK (total_points >= 0),
+ reputation_score INT NOT NULL DEFAULT 100,
+ reputation_bonus_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
  created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB;
 
@@ -23,19 +25,27 @@ CREATE TABLE categories (
 CREATE TABLE items (
  id BIGINT PRIMARY KEY AUTO_INCREMENT,
  owner_id BIGINT NOT NULL,
- category_id BIGINT NOT NULL,
+ category_id BIGINT NULL,
  name VARCHAR(100) NOT NULL,
  description TEXT,
+ photo_url TEXT NULL,
+ meeting_day VARCHAR(8) NULL,
+ meeting_time VARCHAR(5) NULL,
+ meeting_location VARCHAR(30) NULL,
  condition_level ENUM('NEW','GOOD','FAIR','POOR') NOT NULL DEFAULT 'GOOD',
  original_price DECIMAL(10,2) NOT NULL DEFAULT 0 CHECK (original_price >= 0),
  current_price DECIMAL(10,2) NOT NULL DEFAULT 0 CHECK (current_price >= 0),
  estimated_recycle_price DECIMAL(10,2) NOT NULL DEFAULT 0 CHECK (estimated_recycle_price >= 0),
  process_type ENUM('SELL','GIVE','RECYCLE') NOT NULL,
- status ENUM('PENDING','APPLIED','PROCESSING','COMPLETED','OFFLINE','CANCELLED') NOT NULL DEFAULT 'PENDING',
+ status ENUM('PENDING_REVIEW','APPROVED','REJECTED','PENDING','APPLIED','PROCESSING','COMPLETED','OFFLINE','CANCELLED') NOT NULL DEFAULT 'PENDING_REVIEW',
+ review_reason VARCHAR(255) NULL,
+ reviewed_by BIGINT NULL,
+ reviewed_at DATETIME NULL,
  published_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
  completed_at DATETIME NULL,
  CONSTRAINT fk_item_owner FOREIGN KEY(owner_id) REFERENCES users(id),
  CONSTRAINT fk_item_category FOREIGN KEY(category_id) REFERENCES categories(id),
+ CONSTRAINT fk_item_reviewer FOREIGN KEY(reviewed_by) REFERENCES users(id),
  INDEX idx_item_search(category_id, process_type, status, published_at),
  INDEX idx_item_owner(owner_id)
 ) ENGINE=InnoDB;
@@ -47,6 +57,9 @@ CREATE TABLE trade_orders (
  seller_id BIGINT NOT NULL,
  process_type ENUM('SELL','GIVE') NOT NULL,
  amount DECIMAL(10,2) NOT NULL DEFAULT 0 CHECK (amount >= 0),
+ meeting_day VARCHAR(8) NULL,
+ meeting_time VARCHAR(5) NULL,
+ meeting_location VARCHAR(30) NULL,
  status ENUM('APPLIED','PROCESSING','COMPLETED','CANCELLED','REJECTED') NOT NULL DEFAULT 'APPLIED',
  applied_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
  completed_at DATETIME NULL,
@@ -83,13 +96,34 @@ CREATE TABLE recycling_orders (
 CREATE TABLE recycling_records (
  id BIGINT PRIMARY KEY AUTO_INCREMENT,
  recycling_order_id BIGINT NOT NULL UNIQUE,
- category_id BIGINT NOT NULL,
+ category_id BIGINT NULL,
  weight_kg DECIMAL(8,2) NOT NULL CHECK (weight_kg > 0),
  recycle_amount DECIMAL(10,2) NOT NULL DEFAULT 0 CHECK (recycle_amount >= 0),
- contribution_points INT NOT NULL CHECK (contribution_points > 0),
+ contribution_points INT NOT NULL CONSTRAINT chk_recycle_points_nonnegative CHECK (contribution_points >= 0),
  recycled_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
  CONSTRAINT fk_record_order FOREIGN KEY(recycling_order_id) REFERENCES recycling_orders(id),
  CONSTRAINT fk_record_category FOREIGN KEY(category_id) REFERENCES categories(id)
+) ENGINE=InnoDB;
+
+CREATE TABLE reputation_records (
+ id BIGINT PRIMARY KEY AUTO_INCREMENT,
+ user_id BIGINT NOT NULL,
+ change_points INT NOT NULL,
+ reason VARCHAR(200) NOT NULL,
+ source_id BIGINT NULL,
+ created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ CONSTRAINT fk_reputation_user FOREIGN KEY(user_id) REFERENCES users(id)
+) ENGINE=InnoDB;
+
+CREATE TABLE trade_feedback (
+ id BIGINT PRIMARY KEY AUTO_INCREMENT,
+ trade_id BIGINT NOT NULL UNIQUE,
+ buyer_id BIGINT NOT NULL,
+ rating TINYINT NOT NULL CHECK (rating BETWEEN 1 AND 5),
+ comment VARCHAR(255),
+ created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ CONSTRAINT fk_feedback_trade FOREIGN KEY(trade_id) REFERENCES trade_orders(id),
+ CONSTRAINT fk_feedback_buyer FOREIGN KEY(buyer_id) REFERENCES users(id)
 ) ENGINE=InnoDB;
 
 CREATE TABLE eco_point_records (
