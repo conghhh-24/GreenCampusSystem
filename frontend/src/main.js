@@ -8,7 +8,7 @@ import './style.css'
 const App = {
   components: { StatisticsDashboard },
   setup() {
-    const user = ref(null), loginForm = ref({ username: 'student01', password: 'user-demo-hash' }), registerForm = ref({ username: '', password: '', confirmPassword: '', realName: '', phone: '' }), authMode = ref('login'), authErrors = ref({})
+    const user = ref(null), loginForm = ref({ username: '', password: '' }), registerForm = ref({ username: '', password: '', confirmPassword: '', realName: '', phone: '' }), authMode = ref('login'), authErrors = ref({})
     const tab = ref('items'), adminSection = ref('review'), items = ref([]), categories = ref([]), stations = ref([]), stats = ref({}), keyword = ref(''), processType = ref(''), page = ref(0), total = ref(0)
     const trades = ref([]), recycling = ref([]), reviewItems = ref([]), points = ref({ total: 0, records: [] }), users = ref([]), records = ref([]), loading = ref(false)
     const form = ref({ name: '', description: '', photoUrl: '', meetingDate: '', meetingTime: '', meetingLocation: '', processType: 'SELL', currentPrice: 0 }), recycleForm = ref({ itemId: '', stationId: '', appointmentAt: '' }), completeForm = ref({})
@@ -65,7 +65,7 @@ const App = {
     const meetingLocations = ['南苑一站式','南苑食堂','北苑一站式','北苑食堂']
     const meetingText = item => item.meeting_date && item.meeting_time
       ? String(item.meeting_date).slice(0, 10) + ' ' + item.meeting_time
-      : item.meeting_day ? item.meeting_day + ' ' + (item.meeting_time || '') + '（旧记录，未指定日期）' : '未设置具体日期'
+      : '未设置具体日期'
     const validateMeeting = data => {
       if (data.processType === 'RECYCLE') return
       if (!data.meetingDate || !data.meetingTime || !data.meetingLocation) throw new Error('请选择交易日期、时间和地点')
@@ -142,7 +142,7 @@ const App = {
     const withdrawRecycle = id => request(async () => { await api(`/api/recycling-orders/${id}/withdraw`, { method: 'PUT', body: JSON.stringify({ operatorId: user.value.id }) }); ElMessage.success('回收预约已撤回'); await load() })
     const offlineItem = id => request(async () => { await api(`/api/items/${id}?ownerId=${user.value.id}`, { method: 'DELETE' }); ElMessage.success('物品已撤回'); await load() })
     const completeRecycle = order => request(async () => { const weightKg = Number(completeForm.value[order.id]); if (!weightKg || weightKg <= 0) throw new Error('请输入有效重量'); await api(`/api/recycling-orders/${order.id}/complete`, { method: 'POST', body: JSON.stringify({ operatorId: user.value.id, weightKg }) }); ElMessage.success('回收完成，积分已入账'); await load() })
-    const sessionExpired = () => { user.value = null; stats.value = {}; clearSession() }
+    const sessionExpired = () => { user.value = null; stats.value = {}; loginForm.value = { username: '', password: '' }; clearSession() }
     const logout = () => request(async () => { await api('/api/auth/logout', { method: 'POST' }); sessionExpired() })
     onMounted(async () => {
       window.addEventListener('session-expired', sessionExpired)
