@@ -1,35 +1,32 @@
 @baseUrl = http://localhost:8080
 
+### 先登录；IDEA HTTP Client 默认保留会话 Cookie
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+X-Requested-With: XMLHttpRequest
+
+{
+  "username": "student01",
+  "password": "user-demo-hash"
+}
+
+> {%
+client.global.set("csrfToken", response.body.csrfToken);
+client.global.set("userId", response.body.user.id);
+%}
+
+### 查看服务端会话身份
+GET {{baseUrl}}/api/auth/me
+
 ### 查询物品
 GET {{baseUrl}}/api/items?page=0&size=10
 
-### 发起交易
-POST {{baseUrl}}/api/trades
-Content-Type: application/json
+### 查询个人订单
+GET {{baseUrl}}/api/trades?userId={{userId}}
 
-{
-  "itemId": 1,
-  "buyerId": 1,
-  "amount": 25
-}
+### 查询统计
+GET {{baseUrl}}/api/stats/overview
 
-### 查询管理员可见的交易订单
-GET {{baseUrl}}/api/trades?userId=1&admin=true
-
-### 管理员开始处理交易
-PUT {{baseUrl}}/api/trades/1/status
-Content-Type: application/json
-
-{
-  "operatorId": 1,
-  "status": "PROCESSING"
-}
-
-### 管理员完成交易
-PUT {{baseUrl}}/api/trades/1/status
-Content-Type: application/json
-
-{
-  "operatorId": 1,
-  "status": "COMPLETED"
-}
+### 退出登录，之后受保护接口应返回401
+POST {{baseUrl}}/api/auth/logout
+X-CSRF-Token: {{csrfToken}}

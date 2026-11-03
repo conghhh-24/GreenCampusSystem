@@ -11,3 +11,11 @@ spring:
     time-zone: Asia/Shanghai
 server:
   port: 8080
+  servlet:
+    session:
+      timeout: 30m
+      tracking-modes: cookie
+      cookie:
+        http-only: true
+        same-site: strict
+        secure: ${SESSION_COOKIE_SECURE:false}

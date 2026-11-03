@@ -16,7 +16,8 @@ public class SchemaUpgrade {
     @PostConstruct
     public void upgrade() {
         for (String table : new String[]{"items", "trade_orders"}) {
-            add(table, "meeting_day", "VARCHAR(8) NULL");
+            // Keep legacy meeting_day columns untouched: a weekday cannot identify a historical date.
+            add(table, "meeting_date", "DATE NULL");
             add(table, "meeting_time", "VARCHAR(5) NULL");
             add(table, "meeting_location", "VARCHAR(30) NULL");
         }
