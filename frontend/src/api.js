@@ -13,7 +13,9 @@ export async function api(url, options = {}) {
       clearSession()
       window.dispatchEvent(new Event('session-expired'))
     }
-    throw new Error(data.message || data.detail || data.error || '请求失败')
+    const error = new Error(data.message || data.detail || data.error || '请求失败')
+    error.status = response.status
+    throw error
   }
   if (data.csrfToken) csrfToken = data.csrfToken
   return data

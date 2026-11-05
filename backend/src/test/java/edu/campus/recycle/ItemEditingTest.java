@@ -15,18 +15,19 @@ class ItemEditingTest extends TestSessionSupport {
     private JdbcTemplate database(String status, String type) {
         JdbcTemplate db = mock(JdbcTemplate.class);
         when(db.queryForList(LOCK, 10L)).thenReturn(List.of(Map.of("owner_id", 2L, "status", status, "process_type", type)));
+        when(db.queryForObject("SELECT COUNT(*) FROM categories WHERE id=?", Integer.class, 3L)).thenReturn(1);
         return db;
     }
     private Map<String,Object> input() {
         return new HashMap<>(Map.of("ownerId", 2L, "name", "教材", "description", "新版描述", "currentPrice", 25,
-            "photoUrl", "/api/photos/test.jpg", "meetingDate", java.time.LocalDate.now(java.time.ZoneId.of("Asia/Shanghai")).plusDays(1).toString(), "meetingTime", "21:00", "meetingLocation", "北苑食堂"));
+            "photoUrl", "/api/photos/test.jpg", "categoryId", 3L, "meetingDate", java.time.LocalDate.now(java.time.ZoneId.of("Asia/Shanghai")).plusDays(1).toString(), "meetingTime", "21:00", "meetingLocation", "北苑食堂"));
     }
     @ParameterizedTest @ValueSource(strings={"PENDING_REVIEW", "REJECTED", "APPROVED"})
     void editableItemsReturnToReviewWithUpdatedPhotoAndMeeting(String status) {
         JdbcTemplate db = database(status, "SELL");
         assertEquals("修改成功，请等待重新审核", new ApiController(db).update(10L, input()).get("message"));
-        verify(db).update("UPDATE items SET name=?,description=?,photo_url=?,current_price=?,meeting_date=?,meeting_time=?,meeting_location=?,status='PENDING_REVIEW',review_reason=NULL,reviewed_by=NULL,reviewed_at=NULL WHERE id=?",
-            "教材", "新版描述", "/api/photos/test.jpg", 25.0, java.time.LocalDate.now(java.time.ZoneId.of("Asia/Shanghai")).plusDays(1).toString(), "21:00", "北苑食堂", 10L);
+        verify(db).update("UPDATE items SET name=?,category_id=?,description=?,photo_url=?,current_price=?,meeting_date=?,meeting_time=?,meeting_location=?,status='PENDING_REVIEW',review_reason=NULL,reviewed_by=NULL,reviewed_at=NULL WHERE id=?",
+            "教材", 3L, "新版描述", "/api/photos/test.jpg", 25.0, java.time.LocalDate.now(java.time.ZoneId.of("Asia/Shanghai")).plusDays(1).toString(), "21:00", "北苑食堂", 10L);
     }
     @ParameterizedTest @ValueSource(strings={"APPLIED", "PROCESSING", "COMPLETED", "OFFLINE"})
     void lockedStatesCannotBeEdited(String status) {
@@ -68,10 +69,18 @@ class ItemEditingTest extends TestSessionSupport {
         assertThrows(ResponseStatusException.class, () -> new ApiController(db).update(10L, b));
         verify(db, never()).update(anyString(), any(Object[].class));
     }
+    @Test void missingOrUnknownCategoryCannotBeSaved() {
+        JdbcTemplate db = database("APPROVED", "SELL");
+        Map<String,Object> missing = input(); missing.remove("categoryId");
+        assertEquals(HttpStatus.BAD_REQUEST, assertThrows(ResponseStatusException.class, () -> new ApiController(db).update(10L,missing)).getStatusCode());
+        Map<String,Object> unknown = input(); unknown.put("categoryId",999L);
+        assertEquals(HttpStatus.BAD_REQUEST, assertThrows(ResponseStatusException.class, () -> new ApiController(db).update(10L,unknown)).getStatusCode());
+        verify(db,never()).update(startsWith("UPDATE items SET"),any(Object[].class));
+    }
     @Test void optionalPhotoCanBeRemoved() {
         JdbcTemplate db = database("REJECTED", "GIVE");
         Map<String,Object> b = input(); b.put("currentPrice", 0); b.put("photoUrl", "");
         new ApiController(db).update(10L, b);
-        verify(db).update(anyString(), eq("教材"), eq("新版描述"), eq(""), eq(0.0), eq(java.time.LocalDate.now(java.time.ZoneId.of("Asia/Shanghai")).plusDays(1).toString()), eq("21:00"), eq("北苑食堂"), eq(10L));
+        verify(db).update(anyString(), eq("教材"), eq(3L), eq("新版描述"), eq(""), eq(0.0), eq(java.time.LocalDate.now(java.time.ZoneId.of("Asia/Shanghai")).plusDays(1).toString()), eq("21:00"), eq("北苑食堂"), eq(10L));
     }
 }
