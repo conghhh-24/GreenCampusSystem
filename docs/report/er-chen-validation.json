@@ -1,0 +1,110 @@
+{
+  "tables": 10,
+  "attributes": 80,
+  "foreign_keys": 16,
+  "relationships": 16,
+  "drawio_pages": 12,
+  "schema": "database/schema.sql",
+  "columns": {
+    "users": [
+      "id",
+      "username",
+      "password_hash",
+      "real_name",
+      "phone",
+      "role",
+      "status",
+      "total_points",
+      "reputation_score",
+      "reputation_bonus_at",
+      "created_at"
+    ],
+    "categories": [
+      "id",
+      "name",
+      "point_factor",
+      "created_at"
+    ],
+    "items": [
+      "id",
+      "owner_id",
+      "category_id",
+      "name",
+      "description",
+      "photo_url",
+      "meeting_date",
+      "meeting_time",
+      "meeting_location",
+      "current_price",
+      "process_type",
+      "status",
+      "review_reason",
+      "reviewed_by",
+      "reviewed_at",
+      "published_at",
+      "completed_at"
+    ],
+    "trade_orders": [
+      "id",
+      "item_id",
+      "buyer_id",
+      "seller_id",
+      "process_type",
+      "amount",
+      "meeting_date",
+      "meeting_time",
+      "meeting_location",
+      "status",
+      "applied_at",
+      "completed_at"
+    ],
+    "recycling_stations": [
+      "id",
+      "name",
+      "location",
+      "status"
+    ],
+    "recycling_orders": [
+      "id",
+      "item_id",
+      "applicant_id",
+      "station_id",
+      "status",
+      "appointment_at",
+      "applied_at",
+      "completed_at"
+    ],
+    "recycling_records": [
+      "id",
+      "recycling_order_id",
+      "category_id",
+      "weight_kg",
+      "contribution_points",
+      "recycled_at"
+    ],
+    "reputation_records": [
+      "id",
+      "user_id",
+      "change_points",
+      "reason",
+      "source_id",
+      "created_at"
+    ],
+    "trade_feedback": [
+      "id",
+      "trade_id",
+      "buyer_id",
+      "rating",
+      "comment",
+      "created_at"
+    ],
+    "eco_point_records": [
+      "id",
+      "user_id",
+      "recycling_record_id",
+      "change_points",
+      "reason",
+      "created_at"
+    ]
+  }
+}

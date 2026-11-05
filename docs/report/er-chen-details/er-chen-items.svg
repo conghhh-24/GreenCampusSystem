@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1600" viewBox="0 0 1700 1600"><rect width="100%" height="100%" fill="white"/>
+<polyline points="817.7258064516129,742.0 505,180.0" fill="none" stroke="white" stroke-width="11"/><polyline points="817.7258064516129,742.0 505,180.0" fill="none" stroke="#94A3B8" stroke-width="2"/>
+<polyline points="809.3705583756346,742.0 505,307.5" fill="none" stroke="white" stroke-width="11"/><polyline points="809.3705583756346,742.0 505,307.5" fill="none" stroke="#94A3B8" stroke-width="2"/>
+<polyline points="795.1780821917808,742.0 505,435.0" fill="none" stroke="white" stroke-width="11"/><polyline points="795.1780821917808,742.0 505,435.0" fill="none" stroke="#94A3B8" stroke-width="2"/>
+<polyline points="765.7473684210527,742.0 505,562.5" fill="none" stroke="white" stroke-width="11"/><polyline points="765.7473684210527,742.0 505,562.5" fill="none" stroke="#94A3B8" stroke-width="2"/>
+<polyline points="700.0,752.1739130434783 505,690.0" fill="none" stroke="white" stroke-width="11"/><polyline points="700.0,752.1739130434783 505,690.0" fill="none" stroke="#94A3B8" stroke-width="2"/>
+<polyline points="700.0,847.8260869565217 505,910.0" fill="none" stroke="white" stroke-width="11"/><polyline points="700.0,847.8260869565217 505,910.0" fill="none" stroke="#94A3B8" stroke-width="2"/>
+<polyline points="778.5357142857142,858.0 505,1080.0" fill="none" stroke="white" stroke-width="11"/><polyline points="778.5357142857142,858.0 505,1080.0" fill="none" stroke="#94A3B8" stroke-width="2"/>
+<polyline points="805.5333333333333,858.0 505,1250.0" fill="none" stroke="white" stroke-width="11"/><polyline points="805.5333333333333,858.0 505,1250.0" fill="none" stroke="#94A3B8" stroke-width="2"/>
+<polyline points="817.7258064516129,858.0 505,1420.0" fill="none" stroke="white" stroke-width="11"/><polyline points="817.7258064516129,858.0 505,1420.0" fill="none" stroke="#94A3B8" stroke-width="2"/>
+<polyline points="882.2741935483871,742.0 1195,180.0" fill="none" stroke="white" stroke-width="11"/><polyline points="882.2741935483871,742.0 1195,180.0" fill="none" stroke="#94A3B8" stroke-width="2"/>
+<polyline points="894.4666666666667,742.0 1195,350.0" fill="none" stroke="white" stroke-width="11"/><polyline points="894.4666666666667,742.0 1195,350.0" fill="none" stroke="#94A3B8" stroke-width="2"/>
+<polyline points="921.4642857142858,742.0 1195,520.0" fill="none" stroke="white" stroke-width="11"/><polyline points="921.4642857142858,742.0 1195,520.0" fill="none" stroke="#94A3B8" stroke-width="2"/>
+<polyline points="1000.0,752.1739130434783 1195,690.0" fill="none" stroke="white" stroke-width="11"/><polyline points="1000.0,752.1739130434783 1195,690.0" fill="none" stroke="#94A3B8" stroke-width="2"/>
+<polyline points="1000.0,847.8260869565217 1195,910.0" fill="none" stroke="white" stroke-width="11"/><polyline points="1000.0,847.8260869565217 1195,910.0" fill="none" stroke="#94A3B8" stroke-width="2"/>
+<polyline points="921.4642857142858,858.0 1195,1080.0" fill="none" stroke="white" stroke-width="11"/><polyline points="921.4642857142858,858.0 1195,1080.0" fill="none" stroke="#94A3B8" stroke-width="2"/>
+<polyline points="894.4666666666667,858.0 1195,1250.0" fill="none" stroke="white" stroke-width="11"/><polyline points="894.4666666666667,858.0 1195,1250.0" fill="none" stroke="#94A3B8" stroke-width="2"/>
+<polyline points="882.2741935483871,858.0 1195,1420.0" fill="none" stroke="white" stroke-width="11"/><polyline points="882.2741935483871,858.0 1195,1420.0" fill="none" stroke="#94A3B8" stroke-width="2"/>
+<rect x="700.0" y="742.0" width="300" height="116" fill="#EAF4F1" stroke="#334155" stroke-width="3"/>
+<text x="850.0" y="782.5" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="27" font-weight="700" fill="#334155">闲置物品</text>
+<text x="850.0" y="817.5" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="24" font-weight="400" fill="#334155">items</text>
+<ellipse cx="330.0" cy="180.0" rx="175.0" ry="44.0" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<text x="330.0" y="165.0" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="400" fill="#334155" text-decoration="underline">编号 [PK]</text>
+<text x="330.0" y="195.0" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#334155" text-decoration="underline">id</text>
+<ellipse cx="330.0" cy="307.5" rx="175.0" ry="44.0" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<text x="330.0" y="292.5" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="400" fill="#334155">发布者编号 [FK]</text>
+<text x="330.0" y="322.5" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#334155">owner_id</text>
+<ellipse cx="330.0" cy="435.0" rx="175.0" ry="44.0" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<text x="330.0" y="420.0" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="400" fill="#334155">类别编号 [FK] ?</text>
+<text x="330.0" y="450.0" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#334155">category_id</text>
+<ellipse cx="330.0" cy="562.5" rx="175.0" ry="44.0" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<text x="330.0" y="547.5" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="400" fill="#334155">名称</text>
+<text x="330.0" y="577.5" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#334155">name</text>
+<ellipse cx="330.0" cy="690.0" rx="175.0" ry="44.0" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<text x="330.0" y="675.0" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="400" fill="#334155">物品描述 ?</text>
+<text x="330.0" y="705.0" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#334155">description</text>
+<ellipse cx="330.0" cy="910.0" rx="175.0" ry="44.0" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<text x="330.0" y="895.0" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="400" fill="#334155">图片地址 ?</text>
+<text x="330.0" y="925.0" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#334155">photo_url</text>
+<ellipse cx="330.0" cy="1080.0" rx="175.0" ry="44.0" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<text x="330.0" y="1065.0" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="400" fill="#334155">交接日期 ?</text>
+<text x="330.0" y="1095.0" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#334155">meeting_date</text>
+<ellipse cx="330.0" cy="1250.0" rx="175.0" ry="44.0" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<text x="330.0" y="1235.0" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="400" fill="#334155">交接时间 ?</text>
+<text x="330.0" y="1265.0" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#334155">meeting_time</text>
+<ellipse cx="330.0" cy="1420.0" rx="175.0" ry="44.0" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<text x="330.0" y="1405.0" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="400" fill="#334155">交接地点 ?</text>
+<text x="330.0" y="1435.0" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#334155">meeting_location</text>
+<ellipse cx="1370.0" cy="180.0" rx="175.0" ry="44.0" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<text x="1370.0" y="165.0" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="400" fill="#334155">当前价格</text>
+<text x="1370.0" y="195.0" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#334155">current_price</text>
+<ellipse cx="1370.0" cy="350.0" rx="175.0" ry="44.0" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<text x="1370.0" y="335.0" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="400" fill="#334155">处理方式</text>
+<text x="1370.0" y="365.0" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#334155">process_type</text>
+<ellipse cx="1370.0" cy="520.0" rx="175.0" ry="44.0" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<text x="1370.0" y="505.0" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="400" fill="#334155">状态</text>
+<text x="1370.0" y="535.0" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#334155">status</text>
+<ellipse cx="1370.0" cy="690.0" rx="175.0" ry="44.0" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<text x="1370.0" y="675.0" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="400" fill="#334155">审核原因 ?</text>
+<text x="1370.0" y="705.0" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#334155">review_reason</text>
+<ellipse cx="1370.0" cy="910.0" rx="175.0" ry="44.0" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<text x="1370.0" y="895.0" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="400" fill="#334155">审核人编号 [FK] ?</text>
+<text x="1370.0" y="925.0" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#334155">reviewed_by</text>
+<ellipse cx="1370.0" cy="1080.0" rx="175.0" ry="44.0" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<text x="1370.0" y="1065.0" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="400" fill="#334155">审核时间 ?</text>
+<text x="1370.0" y="1095.0" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#334155">reviewed_at</text>
+<ellipse cx="1370.0" cy="1250.0" rx="175.0" ry="44.0" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<text x="1370.0" y="1235.0" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="400" fill="#334155">发布时间</text>
+<text x="1370.0" y="1265.0" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#334155">published_at</text>
+<ellipse cx="1370.0" cy="1420.0" rx="175.0" ry="44.0" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<text x="1370.0" y="1405.0" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="400" fill="#334155">完成时间 ?</text>
+<text x="1370.0" y="1435.0" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#334155">completed_at</text>
+<text x="850" y="65" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="36" font-weight="700" fill="#334155">闲置物品 · 属性图</text>
+<text x="850" y="120" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="23" font-weight="400" fill="#334155">items｜17 个属性</text>
+<text x="850" y="1505" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="23" font-weight="400" fill="#334155">主键加下划线｜FK：外键｜UQ：唯一｜?：可空</text>
+</svg>

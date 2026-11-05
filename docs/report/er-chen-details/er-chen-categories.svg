@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1600" viewBox="0 0 1700 1600"><rect width="100%" height="100%" fill="white"/>
+<polyline points="766.625,742.0 505,560.0" fill="none" stroke="white" stroke-width="11"/><polyline points="766.625,742.0 505,560.0" fill="none" stroke="#94A3B8" stroke-width="2"/>
+<polyline points="700.0,847.8260869565217 505,910.0" fill="none" stroke="white" stroke-width="11"/><polyline points="700.0,847.8260869565217 505,910.0" fill="none" stroke="#94A3B8" stroke-width="2"/>
+<polyline points="933.375,742.0 1195,560.0" fill="none" stroke="white" stroke-width="11"/><polyline points="933.375,742.0 1195,560.0" fill="none" stroke="#94A3B8" stroke-width="2"/>
+<polyline points="1000.0,847.8260869565217 1195,910.0" fill="none" stroke="white" stroke-width="11"/><polyline points="1000.0,847.8260869565217 1195,910.0" fill="none" stroke="#94A3B8" stroke-width="2"/>
+<rect x="700.0" y="742.0" width="300" height="116" fill="#EAF4F1" stroke="#334155" stroke-width="3"/>
+<text x="850.0" y="782.5" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="27" font-weight="700" fill="#334155">物品类别</text>
+<text x="850.0" y="817.5" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="24" font-weight="400" fill="#334155">categories</text>
+<ellipse cx="330.0" cy="560.0" rx="175.0" ry="44.0" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<text x="330.0" y="545.0" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="400" fill="#334155" text-decoration="underline">编号 [PK]</text>
+<text x="330.0" y="575.0" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#334155" text-decoration="underline">id</text>
+<ellipse cx="330.0" cy="910.0" rx="175.0" ry="44.0" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<text x="330.0" y="895.0" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="400" fill="#334155">名称 [UQ]</text>
+<text x="330.0" y="925.0" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#334155">name</text>
+<ellipse cx="1370.0" cy="560.0" rx="175.0" ry="44.0" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<text x="1370.0" y="545.0" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="400" fill="#334155">积分系数</text>
+<text x="1370.0" y="575.0" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#334155">point_factor</text>
+<ellipse cx="1370.0" cy="910.0" rx="175.0" ry="44.0" fill="#FFFFFF" stroke="#334155" stroke-width="2"/>
+<text x="1370.0" y="895.0" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="400" fill="#334155">类别创建时间</text>
+<text x="1370.0" y="925.0" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="19" font-weight="400" fill="#334155">created_at</text>
+<text x="850" y="65" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="36" font-weight="700" fill="#334155">物品类别 · 属性图</text>
+<text x="850" y="120" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="23" font-weight="400" fill="#334155">categories｜4 个属性</text>
+<text x="850" y="1505" text-anchor="middle" dominant-baseline="central" font-family="Microsoft YaHei, sans-serif" font-size="23" font-weight="400" fill="#334155">主键加下划线｜FK：外键｜UQ：唯一｜?：可空</text>
+</svg>
